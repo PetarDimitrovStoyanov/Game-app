@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row space-top">
+    <div class="col-md-12">
+      <h1>Welcome to Furniture System</h1>
+      <p>Select furniture from the catalog to view details.</p>
+    </div>
+  </div>
+  <div *ngFor="let u of user$ | async">
+    <p>{{u.email}}</p>
+    <p>{{u._id}}</p>
+  </div>
+  <input #commonName name="commonName" type="text" placeholder="find..." (keyup)="searchRecipe(commonName.value)">
+  <div *ngFor="let user of usersSearch">
+    <p>{{user.email}}</p>
+    <p>{{user._id}}</p>
+  </div>
+  <div class="row space-top" *ngIf="game$; else loading">
+    <div class="col-md-4" *ngFor="let g of game$ | async">
+      <div class="card text-white bg-primary">
+        <div class="card-body">
+          <blockquote class="card-blockquote">
+            <img src="{{g.image}}" alt=""/>
+            <p>{{g.description | slice:0:10}}</p>
+            <footer>Someone famous in
+              <cite title="Source Title">Source Title</cite>
+            </footer>
+            <div class="pull-right">
+              <a [routerLink]="['/game/details', g._id]" class="btn btn-info">Details</a>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0i7L-bKc_cDTlOkqUCWQ3JL8zGGX7X4lePA&usqp=CAU"
+         alt="">
+  </ng-template>
+</div>

@@ -1,0 +1,31 @@
+<div class="container"  *ngIf="game != undefined">
+  <div class="row space-top">
+    <div class="col-md-12">
+      <h1>Game Details</h1>
+    </div>
+  </div>
+  <div class="row space-top">
+    <div class="col-md-4">
+      <div class="card text-white bg-primary">
+        <div class="card-body">
+          <blockquote class="card-blockquote">
+            <img src="{{game.image}}" alt=""/>
+          </blockquote>
+          <!--тук в дива се слага проверка isAdmin()-->
+          <div class="pull-right">
+            <a (click)="edit()" class="btn btn-info">Edit</a>
+            <a (click)="deleteGame(game._id)" class="btn btn-danger">Delete Item</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <p>Name: {{game.name}}</p>
+      <p>Category: {{game.category}}</p>
+      <p>Year: {{game.year}}</p>
+      <p>Description: {{game.description}}</p>
+      <p>Price: {{game.price}}</p>
+      <p>Seller: <a href = "mailto: {{game.manufacturer}}">{{game.manufacturer}}</a></p>
+    </div>
+  </div>
+</div>

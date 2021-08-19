@@ -1,0 +1,76 @@
+.content {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+  text-align: start;
+}
+
+.banner h2 {
+  padding-top: 50px;
+  font-family: "Robot", sans-serif;
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-size: 55px;
+  color: white;
+}
+
+.banner-wrapper{
+  width: 195px;
+}
+
+.banner-wrapper img{
+  position: relative;
+  left: 470px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.button-banner-start{
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-start{
+  background: linear-gradient(218deg, rgba(241,88,45,1) 2%, rgba(237,51,90,1) 50%, rgba(232,12,136,1) 100%);
+  color: white;
+  margin-top: 65px;
+  border: none;
+  font-size: 17px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.splitter{
+  position: absolute;
+  width: 180px;
+  border-bottom: 2px solid #7D7B7B;
+  top: 212px;
+  right: 105px;
+}
+/*Description banner*/
+
+.description-banner, .banner-wrapper>h3 {
+  background-color: #F0F3F5;
+  min-height: 430px;
+}
+
+.description-banner h3{
+  padding-top: 50px;
+}
+
+.description-banner p {
+  text-align: start;
+  margin: 20px 60px;
+}
+
+hr{
+  width: 80%;
+}
+

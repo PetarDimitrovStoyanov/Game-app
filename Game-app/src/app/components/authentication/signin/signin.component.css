@@ -1,0 +1,23 @@
+.background{
+  background-color: #F0F3F5;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+.sign-in{
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.27);
+  margin: 100px auto;
+  background-color: white;
+}
+
+.sign-in h2{
+  padding-top: 50px;
+}
+
+.sign-in button{
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
