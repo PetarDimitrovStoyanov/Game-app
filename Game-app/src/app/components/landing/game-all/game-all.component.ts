@@ -4,6 +4,7 @@ import {GameService} from '../../../core/services/game.service';
 import {Observable} from 'rxjs';
 import {User} from '../../../core/models/user';
 import {UserService} from '../../../core/services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-furniture-all',
@@ -16,7 +17,7 @@ export class GameAllComponent implements OnInit {
   asd: User[] = [];
   usersSearch: User[] = [];
 
-  constructor(private gameService: GameService, private userService: UserService) {
+  constructor(private gameService: GameService, private userService: UserService, private router: Router) {
   }
 
   ngOnInit() {
@@ -39,5 +40,17 @@ export class GameAllComponent implements OnInit {
         this.usersSearch.push(user);
       }
     }
+  }
+
+  deleteUser(id) {
+    this.userService.deleteUser(id).subscribe((data) => {
+      this.router.navigate([`/game/all`]);
+    });
+  }
+
+  updateUser(id: string) {
+    this.userService.editUser(id, {email: 'testov1'}).subscribe(data => {
+      this.router.navigate(['/game/all']);
+    });
   }
 }

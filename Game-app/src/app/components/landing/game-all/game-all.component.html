@@ -6,8 +6,14 @@
     </div>
   </div>
   <div *ngFor="let u of user$ | async">
-    <p>{{u.email}}</p>
-    <p>{{u._id}}</p>
+    <div class="user-div">
+      <p>{{u.email}}</p>
+      <p>{{u._id}}</p>
+      <div class="inner-div-user">
+        <button class="del-btn-user" (click)="deleteUser(u._id)">DELETE</button>
+        <button class="del-btn-user" (click)="updateUser(u._id)">UPDATE</button>
+      </div>
+    </div>
   </div>
   <input #commonName name="commonName" type="text" placeholder="find..." (keyup)="searchRecipe(commonName.value)">
   <div *ngFor="let user of usersSearch">

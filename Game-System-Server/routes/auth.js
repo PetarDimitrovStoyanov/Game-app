@@ -64,6 +64,82 @@ function validateLoginForm(payload) {
     }
 }
 
+router.put('/edit/:id', authCheck, (req, res) => {
+    const id = req.params.id;
+    const user = req.body;
+
+    if (!user) {
+        return res.status(404).json({
+            success: false,
+            message: 'User does not exists!'
+        })
+    }
+
+      if (!req.user.roles.includes('Admin')) {
+        return res.status(401).json({
+          success: false,
+          message: 'Unauthorized!'
+        })
+      }
+
+  /*  const validationResult = validateGameForm(game)
+    if (!validationResult.success) {
+        return res.status(400).json({
+            success: false,
+            message: validationResult.message,
+            errors: validationResult.errors
+        })
+    }*/
+
+    User.findByIdAndUpdate(id, user)
+        .then(() => {
+            return res.status(200).json({
+                success: true,
+                message: 'User edited successfully!'
+            })
+        })
+})
+
+router.delete('/delete/:id', authCheck, (req, res) => {
+    const id = req.params.id
+
+    User.findById(id)
+        .then((user) => {
+            if (!user) {
+                return res.status(200).json({
+                    success: false,
+                    message: 'User does not exists!'
+                })
+            }
+
+            if (!req.user.roles.includes("Admin")) {
+                return res.status(401).json({
+                    success: false,
+                    message: 'Unauthorized!'
+                })
+            }
+
+            User.findByIdAndDelete(id)
+                .then(() => {
+                    console.log(id);
+                    return res.status(200).json({
+                        success: true,
+                        message: 'User deleted successfully!'
+                    })
+                })
+        })
+});
+
+router.get('/all', authCheck, (req, res) => {
+    const page = parseInt(req.query.page) || 1
+    const search = req.query.search
+
+    User.find({})
+        .then((user) => {
+            return res.status(200).json(user)
+        })
+});
+
 router.post('/register', (req, res, next) => {
     const validationResult = validateSignupForm(req.body)
     if (!validationResult.success) {
@@ -88,45 +164,6 @@ router.post('/register', (req, res, next) => {
         })
     })(req, res, next)
 })
-
-router.get('/all', authCheck, (req, res) => {
-    const page = parseInt(req.query.page) || 1
-    const search = req.query.search
-
-    User.find({})
-        .then((user) => {
-            return res.status(200).json(user)
-        })
-});
-
-router.get('/delete/:id', authCheck, (req, res) => {
-    const id = req.params.id
-
-    User.findById(id)
-        .then((user) => {
-            if (!user) {
-                return res.status(200).json({
-                    success: false,
-                    message: 'User does not exists!'
-                })
-            }
-
-            if (!req.user.roles.includes("Admin")) {
-                return res.status(401).json({
-                    success: false,
-                    message: 'Unauthorized!'
-                })
-            }
-
-            User.findByIdAndDelete(id)
-                .then(() => {
-                    return res.status(200).json({
-                        success: true,
-                        message: 'User deleted successfully!'
-                    })
-                })
-        })
-});
 
 router.post('/login', (req, res, next) => {
     const validationResult = validateLoginForm(req.body)

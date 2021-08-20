@@ -39,7 +39,6 @@ export class GameService {
   }
 
   editGame(id, game): Observable<Game> {
-    console.log(game);
     return this.http.put<Game>(editGame + id, game);
   }
 }
