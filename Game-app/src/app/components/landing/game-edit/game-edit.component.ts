@@ -14,6 +14,7 @@ export class GameEditComponent implements OnInit {
   game: Game;
   form: FormGroup;
   id;
+  email: string;
 
   constructor(private route: ActivatedRoute, private gameService: GameService,
               private authService: AuthService, private router: Router,
@@ -21,6 +22,8 @@ export class GameEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.email = localStorage.getItem('email');
+
     this.route.params.subscribe(data => {
       this.id = data['id'];
       // tslint:disable-next-line:no-shadowed-variable
@@ -32,12 +35,13 @@ export class GameEditComponent implements OnInit {
     this.form = this.fb.group({
       // Като имената в back-end-a
       name: ['', [Validators.required, Validators.minLength(4)]],
-      category: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required]],
       year: ['', [Validators.required, Validators.min(1950), Validators.max(2050)]],
       description: ['', [Validators.required, Validators.minLength(10)]],
       price: ['', [Validators.required, Validators.min(1)]],
       image: ['', [Validators.required, Validators.nullValidator]],
-      manufacturer: ['', [Validators.nullValidator]]
+      manufacturer: ['', [Validators.nullValidator, Validators.required,
+        Validators.pattern('[\\w.\\-_0-9]{1,}[@]{1}[\\w\\-0-9]{1,}[.]{1}[\\w0-9]{1,}$')]]
     });
   }
 

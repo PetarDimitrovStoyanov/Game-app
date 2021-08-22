@@ -10,29 +10,31 @@ import {Router} from '@angular/router';
 })
 export class CreateGameComponent implements OnInit {
   form: FormGroup;
+  image = '';
+  email: string;
 
-  constructor(private fb: FormBuilder, private gameService: GameService,
-              private router: Router) {
+  constructor(private fb: FormBuilder, private gameService: GameService, private router: Router) {
   }
 
   ngOnInit() {
     this.form = this.fb.group({
       // Като имената в back-end-a
       name: ['', [Validators.required, Validators.minLength(4)]],
-      category: ['', [Validators.required, Validators.minLength(4)]],
+      category: ['', [Validators.required]],
       year: ['', [Validators.required, Validators.min(1950), Validators.max(2050)]],
       description: ['', [Validators.required, Validators.minLength(10)]],
       price: ['', [Validators.required, Validators.min(1)]],
       image: ['', [Validators.required, Validators.nullValidator]],
-      manufacturer: ['', [Validators.nullValidator]]
+      manufacturer: ['', [Validators.required, Validators.nullValidator,
+        Validators.pattern('[\\w.\\-_0-9]{1,}[@]{1}[\\w\\-0-9]{1,}[.]{1}[\\w0-9]{1,}$')]]
     });
+    this.email = localStorage.getItem('email');
   }
 
   createGame() {
-
-      this.gameService.createGame(this.form.value).subscribe((data) => {
-        this.router.navigate(['/game/all']);
-      });
+    this.gameService.createGame(this.form.value).subscribe((data) => {
+      this.router.navigate(['/game/all']);
+    });
   }
 
   get f() {

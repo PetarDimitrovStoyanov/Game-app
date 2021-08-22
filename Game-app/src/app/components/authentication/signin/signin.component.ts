@@ -21,6 +21,9 @@ export class SigninComponent {
         localStorage.setItem('token', data['token']);
         localStorage.setItem('name', data['user']['name']);
         localStorage.setItem('admin', data['user']['isAdmin']);
+        localStorage.setItem('email', this.loginForm.value.email);
+        const lookedGames = [];
+        localStorage['lookedGames'] = JSON.stringify(lookedGames);
         this.router.navigate(['/home']);
       });
   }

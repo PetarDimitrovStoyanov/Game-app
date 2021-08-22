@@ -1,0 +1,26 @@
+.create-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.create-wrapper-image{
+  margin-top: 80px;
+  margin-left: 120px;
+  width: 450px;
+  max-height: 70%;
+}
+
+.create-wrapper-image img{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 2px solid black;
+  padding: 8px;
+  background: white;
+}
+
+.container{
+  margin-left: 80px;
+  margin-bottom: 45px;
+}

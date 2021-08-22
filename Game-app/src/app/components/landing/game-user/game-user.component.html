@@ -1,26 +1,40 @@
-<div class="container">
-  <div class="row space-top">
-    <div class="col-md-12">
-      <h1>Profile Page</h1>
-      <p>Listing your furniture.</p>
-    </div>
-  </div>
-  <div class="row space-top">
-    <div class="col-md-4" *ngFor="let game of userGames$ | async">
-      <div class="card text-white bg-primary">
-        <div class="card-body">
-          <blockquote class="card-blockquote">
+<section class="wrapper-game-user-page">
+  <div id="container-class" [@listAnimation]="games.length">
+
+    <div id="list" *ngFor="let game of games">
+      <section class="wrapper-game-user-common" (mouseover)="hover(game)">
+        <div class="wrapper-game-user">
+          <div class="wrapper-game-user-img">
             <img src="{{game.image}}" alt=""/>
-            <p>{{game.description}}</p>
-            <footer>Someone famous in
-              <cite title="Source Title">Source Title</cite>
-            </footer>
-            <div class="pull-right">
-              <a [routerLink]="['/game/details', game._id]" class="btn btn-info">Details</a>
-              <a (click)="deleteFurniture(game._id)" class="btn btn-danger">Delete Item</a>
-            </div>
-          </blockquote>
+          </div>
+          <div class="wrapper-game-user-text-content">
+            <h5>NAME: {{game.name}}</h5>
+            <p>CATEGORY: {{game.category}}</p>
+            <p>PRICE: {{game.price.toFixed(2)}} $</p>
+          </div>
+        </div>
+
+        <div class="wrapper-game-user-buttons">
+          <button class="game-user-button details-btn-user-games" [routerLink]="['/game/details', game._id]">Details
+          </button>
+          <!--  <button class="game-user-button delete-btn-user-games" (click)="deleteGame(game._id)">Delete</button>-->
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+
+    <div class="wrapper-game-user-game-user-big-img" [@itemAnim]>
+      <div class="row space-top">
+        <div class="col-md-12">
+          <h1>MY GAMES</h1>
         </div>
       </div>
+      <div class="col">
+        <img *ngIf="game.image" src="{{game.image}}" alt="no img">
+      </div>
     </div>
-  </div>
+
+</section>
+

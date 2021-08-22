@@ -1,31 +1,57 @@
-<div class="container"  *ngIf="game != undefined">
-  <div class="row space-top">
-    <div class="col-md-12">
-      <h1>Game Details</h1>
-    </div>
-  </div>
-  <div class="row space-top">
-    <div class="col-md-4">
-      <div class="card text-white bg-primary">
-        <div class="card-body">
-          <blockquote class="card-blockquote">
-            <img src="{{game.image}}" alt=""/>
-          </blockquote>
-          <!--тук в дива се слага проверка isAdmin()-->
-          <div class="pull-right">
-            <a (click)="edit()" class="btn btn-info">Edit</a>
-            <a (click)="deleteGame(game._id)" class="btn btn-danger">Delete Item</a>
-          </div>
+<section class="wrapper-game-details" style="background: #F0F0F0">
+  <div class="container wrapper-game-details-leftDiv" *ngIf="game != undefined">
+    <div class="row space-top">
+
+      <div class="wrapper-game-user-game-user-big-img">
+        <div class="col-md-12">
+          <h1>Game Details</h1>
+        </div>
+        <div class="col">
+          <img *ngIf="game.image" src="{{game.image}}" alt="no img">
+        </div>
+        <div class="pull-right" *ngIf="isAuthAdmin() || isCreator()">
+          <button (click)="edit()" type="button" class="btn btn-outline-secondary mr-2 edit-btn-edit"
+                  placement="left" ngbTooltip="Click here and edit the game">
+            Edit Game
+          </button>
+          <button (click)="deleteGame()" type="button" class="btn btn-outline-secondary mr-2 del-btn-edit"
+                  placement="right" ngbTooltip="This will delete the game permanently">
+            Delete Game
+          </button>
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <p>Name: {{game.name}}</p>
-      <p>Category: {{game.category}}</p>
-      <p>Year: {{game.year}}</p>
-      <p>Description: {{game.description}}</p>
-      <p>Price: {{game.price}}</p>
-      <p>Seller: <a href = "mailto: {{game.manufacturer}}">{{game.manufacturer}}</a></p>
+
+      <article class="wrapper-game-details-text">
+        <div class="col-md-4 common-game-details-text">
+          <p>Name: {{game.name}}</p>
+          <p>Category: {{game.category}}</p>
+          <p>Year: {{game.year}}</p>
+          <p>Price: {{game.price}}</p>
+          <p>Seller: <a href="mailto: {{game.manufacturer}}">{{game.manufacturer}}</a></p>
+          <a *ngIf="!isCreator()" href="mailto: {{game.manufacturer}}" class="btn btn-outline-secondary mr-2 message-btn"
+             placement="right" ngbTooltip="Send an email to the seller">Make an offer</a>
+        </div>
+        <div class="game-details-text common-game-details-text">
+          Description: {{game.description}}
+        </div>
+      </article>
+
     </div>
   </div>
-</div>
+
+  <div class="wrapper-game-details-rightDiv" *ngIf="previousGames.length > 0" style="background: #F0F0F0">
+    <h5>Previously watched games</h5>
+    <div class="wrapper-game-details-rightDiv-content" *ngFor="let game of previousGames">
+      <article class="frame-prev-game" (click)="redirect(game)">
+        <div class="wrapper-prev-img">
+          <img src="{{game.image}}" alt="">
+        </div>
+        <div class="wrapper-frame-game-text">
+          <p>Name: {{game.name}}</p>
+          <p>Price: {{game.price.toFixed(2)}} $</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+</section>
