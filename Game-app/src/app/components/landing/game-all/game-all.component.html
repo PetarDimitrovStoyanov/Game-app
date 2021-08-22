@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div class="row space-top">
     <div class="col-md-12">
       <h1>Welcome to Furniture System</h1>
@@ -27,4 +27,91 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0i7L-bKc_cDTlOkqUCWQ3JL8zGGX7X4lePA&usqp=CAU"
          alt="">
   </ng-template>
-</div>
+</div>-->
+
+<section class="content">
+  <div class="search-wrapper">
+    <div class="search-frame">
+      <i class="fas fa-search"></i>
+      <input name="commonName" type="text" placeholder="find your game..." [(ngModel)]="name" (keyup)="searchGame()">
+    </div>
+  </div>
+
+  <section style="background-color: black!important;" class="game-all-section-wrapper">
+    <div class="wrapper">
+      <aside class="home-aside">
+        <h3>Filter by categories:</h3>
+        <form #f="ngForm" (ngSubmit)="filter(f)">
+          <ul class="aside-wrapper">
+            <li>
+              <label for="action">Action games</label>
+              <input class="filer-check" type="checkbox" id="action" name="action" value="yes" ngModel>
+            </li>
+            <li>
+              <label for="adventure">Adventure games</label><br>
+              <input class="filer-check" type="checkbox" id="adventure" name="adventure" value="yes" ngModel>
+            </li>
+            <li>
+              <label for="role">Role-playing games</label><br>
+              <input class="filer-check" type="checkbox" id="role" name="role" value="yes" ngModel>
+            </li>
+            <li>
+              <label for="strategy">Strategy games</label><br>
+              <input class="filer-check" type="checkbox" id="strategy" name="strategy" value="yes" ngModel>
+            </li>
+            <li>
+              <label for="sport">Sports games</label><br>
+              <input class="filer-check" type="checkbox" id="sport" name="sport" value="yes" ngModel>
+            </li>
+          </ul>
+          <button type="submit" class="btn-filter-sort">Filter</button>
+        </form>
+        <h3>Sort by price:</h3>
+        <form #formSubmit="ngForm" (ngSubmit)="sort(formSubmit)">
+          <ul class="aside-wrapper-sort">
+            <li>
+              <label for="ascending">Ascending</label><br>
+              <input class="filer-check" type="radio" id="ascending" name="sort" value="ascending" ngModel>
+            </li>
+            <li>
+              <label for="descending">Descending</label><br>
+              <input class="filer-check" type="radio" id="descending" name="sort" value="descending" ngModel>
+            </li>
+          </ul>
+          <button type="submit" class="btn-filter-sort">Sort</button>
+        </form>
+      </aside>
+
+      <main class="home-content">
+        <section class="empty" *ngIf="games.length <= 0">
+          <h3 class="empty-message">There are no available recipes!</h3>
+        </section>
+       <!-- <section class="wrapper-game" *ngFor="let g of game$ | async">-->
+        <section class="wrapper-game" *ngFor="let g of games">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <div class="wrapper-img-game">
+            <img src="{{g.image}}" alt="img">
+          </div>
+          <div class="div-name text-style">
+            <h4>Name: </h4>
+            <p>{{g.name}}</p>
+          </div>
+          <div class="div-category text-style">
+            <h4>Category:</h4>
+            <p>{{g.category}}</p>
+          </div>
+          <div class="div-price text-style">
+            <h4>Price:</h4>
+            <p>{{g.price.toFixed(2)}} $</p>
+          </div>
+          <button class="details-btn" [routerLink]="['/game/details', g._id]">Details</button>
+        </section>
+
+      </main>
+    </div>
+  </section>
+
+</section>

@@ -1,4 +1,337 @@
-
+/*
 img {
   width: 100%;
+}*/
+
+html > body {
+  background-color: black;
 }
+.game-all-section-wrapper{
+  padding-top: 20px;
+}
+/*COMMON SEARCH BAR*/
+
+.search-wrapper {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  -webkit-box-shadow: inset 1px -16px 22px -1px #000000;
+  box-shadow: inset 1px -16px 22px -1px #000000;
+}
+
+.search-frame {
+  border-radius: 4px;
+  border: 1px solid black;
+  width: 500px;
+  margin: 0 auto
+}
+
+.search-frame input {
+  background-color: transparent;
+  border: none;
+  width: 90%;
+  font-size: 25px;
+  color: black;
+  padding-left: 5px;
+}
+
+.search-frame input::placeholder {
+  color: black;
+}
+
+.search-frame input:focus {
+  outline: none;
+  color: black;
+}
+
+.fa-search {
+  font-size: 20px;
+  color: black;
+}
+
+.home-aside {
+  margin-right: 20px;
+  padding-top: 20px;
+}
+
+.home-aside h3 {
+  color: #CCCCCC;
+}
+
+.search-wrapper {
+  background: #F0F0F0;
+}
+
+.search-wrapper h1 {
+  font-size: 100px;
+}
+
+/* Aside and content*/
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-aside {
+  width: 15%;
+  border-right: 2px solid #ED315C;
+}
+
+.home-content {
+  width: 85%;
+  position: relative;
+}
+
+/*ASIDE*/
+
+.aside-wrapper {
+  font-size: 16px;
+}
+
+.home-aside h3 {
+  padding-left: 2%;
+}
+
+.aside-wrapper li, .aside-wrapper-sort li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 5%;
+  margin-top: 3%;
+  color: #CCCCCC;
+}
+
+.aside-wrapper li:hover, .aside-wrapper-sort li:hover {
+  font-weight: bold;
+  /*font-size: 18px;*/
+  color: white;
+}
+
+.aside-wrapper li label {
+  cursor: pointer;
+}
+
+.btn-filter-sort {
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(218deg, rgba(241,88,45,1) 2%, rgba(237,51,90,1) 50%, rgba(232,12,136,1) 100%);
+  color: #CCCCCC;
+  padding: 5px 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  margin-left: 65%;
+  margin-top: 5%;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/* RECIPES */
+
+.home-content {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+
+  overflow-y: scroll;
+  height: 70vh;
+  scroll-margin: 100px;
+  scroll-behavior: smooth;
+
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.home-content::-webkit-scrollbar {
+  height: auto;
+}
+
+.wrapper-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25%;
+ /* border-bottom: 1px solid gold;*/
+  margin-left: 30px;
+  margin-right: 70px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  max-height: 420px;
+}
+
+.wrapper-img-game {
+  width: 100%;
+}
+
+.wrapper-img-game img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.text-style h4, .text-style p{
+  font-size: 14px;
+  padding-left: 10px;
+  color: #CCCCCC;
+}
+
+
+/*Details button*/
+.details-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 0;
+  cursor: pointer;
+  width: 30%;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #CCCCCC;
+  background: linear-gradient(218deg, rgba(241,88,45,1) 2%, rgba(237,51,90,1) 50%, rgba(232,12,136,1) 100%);
+  font-weight: bold;
+  margin: 3% auto;
+}
+
+.text-style{
+  color: #CCCCCC;
+}
+
+/*BUTTON - SCROLL TO TOP*/
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 1;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#myBtn:hover {
+  background-color: #555; /* Adds a dark-grey background on hover */
+}
+
+/*ANIMATION*/
+
+.home-content .wrapper-game {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/*left -> right*/
+.wrapper-game span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, #ED315C);
+  animation: animate1 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/*top -> bottom*/
+.wrapper-game span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ED315C);
+  animation: animate2 2s linear infinite;
+  animation-delay: 2s;
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/*right -> left*/
+
+.wrapper-game span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to left, transparent, #ED315C);
+  animation: animate3 2s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes animate3 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/*bottom -> top*/
+.wrapper-game span:nth-child(4) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #ED315C);
+  animation: animate4 2s linear infinite;
+  animation-delay: 4s;
+}
+
+@keyframes animate4 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.wrapper-game span{
+  opacity: 0;
+}
+
+.wrapper-game:hover span{
+  opacity: 1;
+}
+
+/*MESSAGE*/
+.empty-message{
+  margin-left: 320px
+
+}
+
