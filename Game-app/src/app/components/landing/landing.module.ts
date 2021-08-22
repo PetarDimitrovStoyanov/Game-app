@@ -8,12 +8,20 @@ import {RouterModule} from '@angular/router';
 import {GameUserComponent} from './game-user/game-user.component';
 import {GameEditComponent} from './game-edit/game-edit.component';
 import {AdminAuthGuard} from '../../core/guards/admin-auth.guard';
-import { StartComponent } from './start/start.component';
+import {StartComponent} from './start/start.component';
+import {AllUsersComponent} from './all-users/all-users.component';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import {Ng2OrderModule} from 'ng2-order-pipe';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {path: 'create', component: CreateGameComponent},
@@ -21,6 +29,7 @@ import { StartComponent } from './start/start.component';
       {path: 'details/:id', component: GameDetailsComponent},
       {path: 'user', component: GameUserComponent},
       {path: 'edit/:id', component: GameEditComponent/*, canActivate: [AdminAuthGuard]*/},
+      {path: 'all-users', component: AllUsersComponent, canActivate: [AdminAuthGuard]},
     ]),
   ],
   declarations: [
@@ -29,8 +38,10 @@ import { StartComponent } from './start/start.component';
     GameDetailsComponent,
     GameUserComponent,
     GameEditComponent,
-    StartComponent
+    StartComponent,
+    AllUsersComponent
   ]
 })
+
 export class LandingModule {
 }

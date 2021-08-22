@@ -5,21 +5,6 @@
       <p>Select furniture from the catalog to view details.</p>
     </div>
   </div>
-  <div *ngFor="let u of user$ | async">
-    <div class="user-div">
-      <p>{{u.email}}</p>
-      <p>{{u._id}}</p>
-      <div class="inner-div-user">
-        <button class="del-btn-user" (click)="deleteUser(u._id)">DELETE</button>
-        <button class="del-btn-user" (click)="updateUser(u._id)">UPDATE</button>
-      </div>
-    </div>
-  </div>
-  <input #commonName name="commonName" type="text" placeholder="find..." (keyup)="searchRecipe(commonName.value)">
-  <div *ngFor="let user of usersSearch">
-    <p>{{user.email}}</p>
-    <p>{{user._id}}</p>
-  </div>
   <div class="row space-top" *ngIf="game$; else loading">
     <div class="col-md-4" *ngFor="let g of game$ | async">
       <div class="card text-white bg-primary">

@@ -1,36 +1,3 @@
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" routerLink="/home">Game Store</a>
-  <button appCollapse class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01"
-    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle header">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="navbar-collapse collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li *ngIf="!authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" routerLink="/auth/signin">Sign In</a>
-      </li>
-      <li *ngIf="!authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" routerLink="/auth/signup">Sign Up</a>
-      </li>
-      <li *ngIf="authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" (click)="logout()">Logout</a>
-      </li>
-      <li *ngIf="authService.isAuthenticated()" appNavDropdown class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Store</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" routerLink="/game/all">All games</a>
-          <a class="dropdown-item" routerLink="/game/user">My games</a>
-          <a class="dropdown-item" routerLink="/game/create">Create</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-  &lt;!&ndash;ДА СЕ ОПРАВИ&ndash;&gt;
-  <p>{{username}}</p>
-</nav>-->
-
 <nav class="nav">
   <section>
     <h1 class="logo">-GAME-X-STORE-</h1>
@@ -41,11 +8,11 @@
       <li><a routerLink="/game/all">All games</a></li>
       <li><a routerLink="/game/user">My games</a></li>
       <li><a routerLink="/game/create">Create a game</a></li>
-      <li *ngIf="authService.isAdmin()"><a href="">All users</a></li>
+      <li *ngIf="authService.isAdmin()"><a routerLink="/game/all-users">All users</a></li>
       <li><a href="" (click)="logout()">Logout</a></li>
     </ul>
-    <div class="nav-section-div" *ngIf="authService.isAuthenticated() && username != undefined">
-      <p>Welcome, {{username}}</p>
+    <div class="nav-section-div" *ngIf="authService.isAuthenticated()">
+      <p>Welcome, {{username ? getName() : username}}</p>
     </div>
   </section>
 </nav>

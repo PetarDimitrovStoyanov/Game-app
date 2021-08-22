@@ -24,5 +24,4 @@ export class SigninComponent {
         this.router.navigate(['/home']);
       });
   }
-
 }

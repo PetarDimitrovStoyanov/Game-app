@@ -10,7 +10,7 @@
   text-align: start;
 }
 
-.banner h2 {
+.banner div h2 {
   padding-top: 50px;
   font-family: "Robot", sans-serif;
   font-weight: 900;
@@ -63,11 +63,14 @@
 
 .description-banner h3{
   padding-top: 50px;
+  text-align: center;
 }
 
 .description-banner p {
   text-align: start;
   margin: 20px 60px;
+  width: 80%;
+  padding-left: 10%;
 }
 
 hr{

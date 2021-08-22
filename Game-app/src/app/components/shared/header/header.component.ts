@@ -6,13 +6,15 @@ import {AuthService} from '../../../core/services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  exportAs: 'home'
 })
-// tslint:disable-next-line:component-class-suffix
-export class Header implements OnInit {
-  username;
+
+export class HeaderComponent implements OnInit {
+  username: string;
 
   constructor(public authService: AuthService, private router: Router) {
+
   }
 
   ngOnInit(): void {
@@ -23,5 +25,9 @@ export class Header implements OnInit {
     this.authService.logout();
     localStorage.clear();
     this.router.navigate(['/auth/signin']);
+  }
+
+  getName() {
+    return localStorage.getItem('name');
   }
 }

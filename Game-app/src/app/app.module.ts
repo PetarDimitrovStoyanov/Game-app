@@ -15,6 +15,8 @@ import {GameService} from './core/services/game.service';
 import {AuthenticationModule} from './components/authentication/authentication.module';
 import {LandingModule} from './components/landing/landing.module';
 import {SharedModule} from './components/shared/shared.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import {SharedModule} from './components/shared/shared.module';
     SharedModule,
     AuthenticationModule,
     LandingModule,
+    NgbModule,
     ToastrModule.forRoot(),
   ],
   providers: [

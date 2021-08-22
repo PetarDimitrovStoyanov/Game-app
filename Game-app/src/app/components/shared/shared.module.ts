@@ -1,9 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Header} from './header/header';
+import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
-import {CollapseDirective} from './header/collapse.directive';
-import {DropdownDirective} from './header/dropdown.directive';
 import {HomeComponent} from '../landing/home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -14,13 +12,11 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule
   ],
   exports: [
-    Header,
+    HeaderComponent,
     FooterComponent,
   ],
   declarations: [
-    Header,
-    CollapseDirective,
-    DropdownDirective,
+    HeaderComponent,
     HomeComponent,
     FooterComponent
   ]

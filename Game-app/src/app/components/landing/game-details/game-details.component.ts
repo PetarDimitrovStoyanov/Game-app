@@ -32,7 +32,7 @@ export class GameDetailsComponent implements OnInit {
   }
 
   deleteGame(id: string) {
-    this.gameService.deleteGame(id).subscribe((data) => {
+    this.gameService.deleteGame(this.id).subscribe((data) => {
       this.router.navigate([`/home`]);
     });
   }

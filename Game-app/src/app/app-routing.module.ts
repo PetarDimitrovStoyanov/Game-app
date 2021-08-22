@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-
 import {HomeComponent} from './components/landing/home/home.component';
 import {AuthGuard} from './core/guards/auth.guard';
 import {StartComponent} from './components/landing/start/start.component';
@@ -22,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: `reload`})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
