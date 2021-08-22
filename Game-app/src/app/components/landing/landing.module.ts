@@ -14,24 +14,26 @@ import {AllUsersComponent} from './all-users/all-users.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    Ng2OrderModule,
-    NgxPaginationModule,
-    Ng2SearchPipeModule,
-    ReactiveFormsModule,
-    RouterModule.forChild([
-      {path: 'create', component: CreateGameComponent},
-      {path: 'all', component: GameAllComponent},
-      {path: 'details/:id', component: GameDetailsComponent},
-      {path: 'user', component: GameUserComponent},
-      {path: 'edit/:id', component: GameEditComponent/*, canActivate: [AdminAuthGuard]*/},
-      {path: 'all-users', component: AllUsersComponent, canActivate: [AdminAuthGuard]},
-    ]),
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        Ng2OrderModule,
+        NgxPaginationModule,
+        Ng2SearchPipeModule,
+        ReactiveFormsModule,
+        RouterModule.forChild([
+            {path: 'create', component: CreateGameComponent},
+            {path: 'all', component: GameAllComponent},
+            {path: 'details/:id', component: GameDetailsComponent},
+            {path: 'user', component: GameUserComponent},
+            {path: 'edit/:id', component: GameEditComponent/*, canActivate: [AdminAuthGuard]*/},
+            {path: 'all-users', component: AllUsersComponent, canActivate: [AdminAuthGuard]},
+        ]),
+        NgbTooltipModule,
+    ],
   declarations: [
     CreateGameComponent,
     GameAllComponent,

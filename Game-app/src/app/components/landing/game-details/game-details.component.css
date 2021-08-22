@@ -1,3 +1,138 @@
-img{
+.wrapper-game-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.space-top, .wrapper-game-details-text{
+  display: flex;
+}
+
+.wrapper-game-details-leftDiv {
+  width: 70%;
+}
+
+.wrapper-game-details-text{
+  width: 70%;
+  padding-top: 3px;
+}
+
+.wrapper-game-details-rightDiv {
+  width: 20%;
+  padding-left: 25px;
+  overflow-y: scroll;
+  height: 80vh;
+  scroll-margin: 100px;
+  scroll-behavior: smooth;
+  background: white;
+  margin-top: 20px;
+  border-left: 2px solid #ED315C;
+}
+
+.wrapper-game-details-rightDiv h5 {
+  font-size: 16px;
+}
+
+.game-details-text{
+  overflow-y: scroll;
+  height: 80vh;
+  scroll-margin: 100px;
+  scroll-behavior: smooth;
+}
+
+.wrapper-game-details-rightDiv::-webkit-scrollbar, .game-details-text::-webkit-scrollbar {
+  height: auto;
+}
+
+.wrapper-game-details-rightDiv-content{
+  padding-left: 35px;
+  margin-top: 20px;
+}
+
+img {
   width: 100%;
 }
+
+/*Prev. section*/
+
+.frame-prev-game {
+  max-width: 220px;
+  max-height: 355px;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.27);
+  cursor: pointer;
+}
+
+.wrapper-prev-img, .wrapper-prev-img img {
+  max-height: 280px;
+  width: 100%;
+}
+
+.wrapper-prev-img img {
+  object-fit: cover;
+}
+
+.wrapper-frame-game-text {
+  padding: 5px;
+}
+
+/*Image section*/
+.wrapper-game-user-game-user-big-img {
+  /*width: 420px;*/
+  width: 30%;
+}
+
+.wrapper-game-user-game-user-big-img img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  margin: 20px 34px;
+  border-radius: 8px;
+  border: 4px solid black;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.27);
+}
+
+/*Text general game - topic*/
+.col-md-12 h1{
+  padding-left: 40px;
+}
+
+.common-game-details-text{
+  margin-top: 60px;
+  margin-left: 55px;
+  width: 90%;
+}
+
+.common-game-details-text p, .game-details-text, .wrapper-frame-game-text {
+ color: #1A1A1A;
+}
+
+/*Buttons*/
+.btn{
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.del-btn-edit{
+  background: orangered;
+  margin-left: 44px;
+}
+
+.edit-btn-edit{
+  background: limegreen;
+  margin-left: 75px;
+}
+
+.message-btn{
+  background: royalblue;
+  margin-left: 0px;
+}
+
+
+
