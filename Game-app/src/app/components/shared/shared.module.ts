@@ -4,12 +4,17 @@ import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
 import {HomeComponent} from '../landing/home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
+import { CarouselNavigationComponent } from './carousel-navigation/carousel-navigation.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgbCarouselModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
@@ -18,7 +23,9 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselNavigationComponent,
+    CarouselNavigationComponent
   ]
 })
 export class SharedModule {

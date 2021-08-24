@@ -11,8 +11,5 @@
       <li *ngIf="authService.isAdmin()"><a routerLink="/game/all-users">All users</a></li>
       <li><a href="" (click)="logout()">Logout</a></li>
     </ul>
-    <div class="nav-section-div" *ngIf="authService.isAuthenticated()">
-      <p>Welcome, {{username ? getName() : username}}</p>
-    </div>
   </section>
 </nav>

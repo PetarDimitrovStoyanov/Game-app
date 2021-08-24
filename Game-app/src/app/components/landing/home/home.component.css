@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+font-face {
+  font-family: 'Permanent Marker', cursive;
+}
+
+font-face {
+  font-family: 'Alumni Sans', sans-serif;
+}
+
+.login-name {
+  text-align: center;
+  margin-top: 15px;
+  font-family: "Alumni Sans", sans-serif;
+  font-weight: 700;
+  font-size: 90px;
+}
+
+.special-tag {
+  font-size: 95px;
+  font-family: "Permanent Marker", sans-serif;
+  background: -webkit-linear-gradient(218deg, rgba(241, 88, 45, 1) 2%, rgba(237, 51, 90, 1) 50%, rgba(232, 12, 136, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wrapper-home-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.first-layer {
+  margin-top: 110px;
+  width: 40%;
+}
+
+.second-layer {
+  width: 60%;
+  margin-top: 25px;
+}
+
+/*Text animation*/
+
+.login-name span:last-child {
+  overflow: hidden;
+}
+
+.login-name span:last-child:before {
+  content: '.';
+  color: #F0F0F0;
+  position: absolute;
+  left: 0;
+  width: 800px;
+  height: 120px;
+  background: #F0F0F0;
+  border-left: 2px solid black;
+  animation: typing 6s steps(20) forwards;
+}
+
+@keyframes typing {
+  40%, 60% {
+    left: calc(38% + 30px);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+
+
