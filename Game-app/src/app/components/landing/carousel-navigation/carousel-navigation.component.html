@@ -1,0 +1,11 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let game of game$ | async">
+    <div class="picsum-img-wrapper">
+      <img [src]="game.image" alt="Random first slide">
+    </div>
+    <div class="carousel-caption">
+      <h3>{{game.name}}</h3>
+      <p>{{game.price.toFixed(2)}} $</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

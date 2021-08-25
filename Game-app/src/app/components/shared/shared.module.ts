@@ -6,26 +6,24 @@ import {HomeComponent} from '../landing/home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
-import { CarouselNavigationComponent } from './carousel-navigation/carousel-navigation.component';
-
+import {LandingModule} from '../landing/landing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     NgbCarouselModule,
-    FormsModule
+    FormsModule,
+    LandingModule,
   ],
   exports: [
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
   ],
   declarations: [
     HeaderComponent,
     HomeComponent,
-    FooterComponent,
-    CarouselNavigationComponent,
-    CarouselNavigationComponent
+    FooterComponent
   ]
 })
 export class SharedModule {

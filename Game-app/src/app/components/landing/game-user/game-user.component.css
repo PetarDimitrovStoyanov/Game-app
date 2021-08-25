@@ -99,3 +99,18 @@
   background: white;
   margin-top: 50px
 }
+
+.delete-btn-user-games {
+  color: red;
+  border: 2px solid red;
+  background: white;
+  margin-top: 50px
+}
+
+.center{
+  width: fit-content;
+  padding-top: 90px;
+  position: absolute;
+  left: 25%
+}
+

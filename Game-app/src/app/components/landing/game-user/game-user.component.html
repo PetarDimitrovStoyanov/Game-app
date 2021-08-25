@@ -23,16 +23,23 @@
 
   </div>
 
-    <div class="wrapper-game-user-game-user-big-img" [@itemAnim]>
-      <div class="row space-top">
-        <div class="col-md-12">
-          <h1>MY GAMES</h1>
-        </div>
-      </div>
-      <div class="col">
-        <img *ngIf="game.image" src="{{game.image}}" alt="no img">
+  <div *ngIf="games.length === 0">
+    <div class="row space-top center">
+      <div class="col-md-12">
+        <h1>There are no added game ads!</h1>
       </div>
     </div>
+  </div>
+  <div *ngIf="games.length > 0" class="wrapper-game-user-game-user-big-img" [@itemAnim]>
+    <div class="row space-top">
+      <div class="col-md-12">
+        <h1>MY GAMES</h1>
+      </div>
+    </div>
+    <div class="col">
+      <img *ngIf="game.image" src="{{game.image}}" alt="no img">
+    </div>
+  </div>
 
 </section>
 

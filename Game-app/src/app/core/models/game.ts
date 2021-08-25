@@ -7,4 +7,5 @@ export interface Game {
   price: number;
   image: string;
   manufacturer: string;
+  creator?: string;
 }

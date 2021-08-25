@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {GameService} from '../../../core/services/game.service';
-import {Observable} from 'rxjs';
 import {Game} from '../../../core/models/game';
 import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 
 @Component({
-  selector: 'app-furniture-user',
+  selector: 'app-game-user',
   templateUrl: './game-user.component.html',
   styleUrls: ['./game-user.component.css'],
   animations: [
@@ -41,7 +40,6 @@ import {trigger, style, transition, animate, keyframes, query, stagger} from '@a
   ]
 })
 export class GameUserComponent implements OnInit {
-  /*  userGames$: Observable<Array<Game>>;*/
   games: Game[] = [];
   game: Game;
 
@@ -49,18 +47,13 @@ export class GameUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    /* this.userGames$ = this.gameService.getUserGames();*/
     this.gameService.getUserGames().subscribe((data) => {
       this.games = data;
       this.game = this.games[0];
     });
-
   }
 
   deleteGame(id: string) {
-    /*this.gameService.deleteGame(id).subscribe((data) => {
-      this.userGames$ = this.gameService.getUserGames();
-    });*/
     this.gameService.deleteGame(id).subscribe((data) => {
       this.ngOnInit();
     });
