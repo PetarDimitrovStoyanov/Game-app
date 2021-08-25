@@ -1,0 +1,9 @@
+.wrapper-not-found{
+  width: 60%;
+}
+
+.wrapper-not-found img{
+  width: 70%;
+  margin-left: 50%;
+  object-fit: cover;
+}
