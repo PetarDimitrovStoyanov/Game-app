@@ -1,0 +1,78 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-append">
+          <form #f="ngForm" (ngSubmit)="submit(currentUser._id, f)" class="form-edit-user">
+            <label for="name">Name:</label>
+            <input class="input-form-edit-user" required type="text" id="name" name="name" #name="ngModel"
+                   placeholder="User name" [ngModel]="currentUser.name" ngModel>
+            <div *ngIf="name.errors?.required && name.touched" class="alert edit-create-alert">*The name is required!
+            </div>
+            <label for="register-email">EMAIL:</label>
+            <input class="input-form-edit-user" required type="email" id="register-email" #email="ngModel"
+                   pattern="[\w.\-_0-9]{1,}[@]{1}[\w\-0-9]{1,}[.]{1}[\w0-9]{1,}$" name="email" placeholder="User email"
+                   [ngModel]="currentUser.email" ngModel>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+              *This email is not allowed or it is badly formatted!
+            </div>
+            <label for="roles">Roles:</label>
+            <select id="roles" required name="roles" [ngModel]="currentUser.roles.includes!('Admin') ? 'Admin' : 'Not an admin'"
+            class="input-form-edit-user">
+              <option value="{{currentUser.roles.includes!('Admin') ? 'Admin' : 'Not an admin'}}"
+                      selected disabled hidden>{{currentUser.roles.includes!('Admin') ? 'Admin' : 'Not an admin'}}</option>
+              <option value="Admin">Admin</option>
+              <option value="Not an admin">Not an admin</option>
+            </select>
+            <button class="btn-save" type="submit" [disabled]="f.invalid" (click)="modal.close('Save click')">SAVE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div class="row space-top">
+  <div class="col-md-12">
+    <h1 class="topic-text-all-users">ADMIN PAGE - SEE ALL USERS</h1>
+  </div>
+</div>
+
+<section class="all-users-wrapper">
+  <nav class="navbar">
+    <input class="form-control" type="text" name="email" [(ngModel)]="email" (keyup)="search()"
+           placeholder="Find user by email...">
+  </nav>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="head">User id</th>
+      <th class="head" (click)="sort('username')">Username&nbsp;<i class="fa fa-sort"></i></th>
+      <th class="head" (click)="sort('id')">Email&nbsp;<i class="fa fa-sort"></i></th>
+      <th class="head" (click)="sort('role')">Role&nbsp;<i class="fa fa-sort"></i></th>
+      <th class="head">Buttons</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users | orderBy: key: reverse | paginate: {itemsPerPage: 5, currentPage:page};">
+      <th class="text-transform">{{user._id}}</th>
+      <th class="text-transform">{{user.name}}</th>
+      <th class="text-transform">{{user.email}}</th>
+      <th class="text-transform">{{user.roles.includes!('Admin') ? "Admin" : "Not an admin"}}</th>
+      <th class="buttons-th">
+        <!--<div class="del-btn-user update" (click)="updateUser(user._id)"><i class="fas fa-user-edit"></i></div>-->
+        <div class="del-btn-user update" (click)="open(content, user)"><i class="fas fa-user-edit"></i></div>
+        <div class="del-btn-user delete" (click)="deleteUser(user._id)"><i class="fas fa-trash-alt"></i></div>
+      </th>
+    </tr>
+    </tbody>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </table>
+</section>
+
