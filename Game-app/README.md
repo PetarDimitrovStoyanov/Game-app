@@ -42,7 +42,7 @@ that allows searching by email in order to be easier for the admin to find the p
 <h3>Project structure:</h3>
 <ul>
 <li>Components folder:
-  <ol>
+  <ol type="1">
 <li>Authentication module - contains Login and Register components, both use template-driven form.</li>
 <li>Landing module - Includes the following components: 
       1. AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.
