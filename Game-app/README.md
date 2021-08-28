@@ -9,7 +9,7 @@ The admin, can make everything that the user can do, and also edit not only his 
 <h3>Short Info and Functionalities:</h3>
 <ul>
 <li> public part (accessible without authentication) - the non-authenticated users can see:
-  <ol>
+  <ol type="1">
   <li> Start page - it contains brief information about the web application and buttons for login and register. </li>
   <li> Login page - contains a login form.</li>
   <li> Register page - contains a registration form.</li>
