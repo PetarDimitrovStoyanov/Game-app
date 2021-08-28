@@ -1,20 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Game} from '../../../core/models/game';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../../../core/services/game.service';
 import {AuthService} from '../../../core/services/auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-game-edit',
   templateUrl: './game-edit.component.html',
   styleUrls: ['./game-edit.component.css']
 })
-export class GameEditComponent implements OnInit {
+export class GameEditComponent implements OnInit, OnDestroy {
   game: Game;
   form: FormGroup;
   id;
   email: string;
+
+  getGameSubs: Subscription;
 
   constructor(private route: ActivatedRoute, private gameService: GameService,
               private authService: AuthService, private router: Router,
@@ -27,7 +30,7 @@ export class GameEditComponent implements OnInit {
     this.route.params.subscribe(data => {
       this.id = data['id'];
       // tslint:disable-next-line:no-shadowed-variable
-      this.gameService.getGame(this.id).subscribe((data: Game) => {
+      this.getGameSubs = this.gameService.getGame(this.id).subscribe((data: Game) => {
         this.game = data;
       });
     });
@@ -56,5 +59,9 @@ export class GameEditComponent implements OnInit {
   editGame() {
     this.gameService.editGame(this.id, this.form.value).subscribe();
     this.router.navigate(['/game/all']);
+  }
+
+  ngOnDestroy(): void {
+    this.getGameSubs.unsubscribe();
   }
 }

@@ -17,7 +17,9 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgbCarouselModule, NgbTooltipModule} from '@ng-bootstrap/ng-bootstrap';
 import {GamesByUserComponent} from './games-by-user/games-by-user.component';
 import {CarouselNavigationComponent} from './carousel-navigation/carousel-navigation.component';
+
 import {SharedModule} from '../shared/shared.module';
+import {HomeComponent} from './home/home.component';
 
 // @ts-ignore
 @NgModule({
@@ -34,11 +36,12 @@ import {SharedModule} from '../shared/shared.module';
       {path: 'details/:id', component: GameDetailsComponent},
       {path: 'user', component: GameUserComponent},
       {path: 'edit/:id', component: GameEditComponent},
-      {path: 'games-by-user/:id', component: GamesByUserComponent},
+      {path: 'games-by-user/:id', component: GamesByUserComponent, canActivate: [AdminAuthGuard]},
       {path: 'all-users', component: AllUsersComponent, canActivate: [AdminAuthGuard]},
     ]),
     NgbTooltipModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    SharedModule,
   ],
   exports: [
     CarouselNavigationComponent
@@ -54,6 +57,7 @@ import {SharedModule} from '../shared/shared.module';
     GamesByUserComponent,
     CarouselNavigationComponent,
     CarouselNavigationComponent,
+    HomeComponent
   ]
 })
 

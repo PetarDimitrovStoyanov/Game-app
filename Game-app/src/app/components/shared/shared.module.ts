@@ -2,29 +2,29 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
-import {HomeComponent} from '../landing/home/home.component';
-import { FooterComponent } from './footer/footer.component';
+import {FooterComponent} from './footer/footer.component';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
-import {LandingModule} from '../landing/landing.module';
+import {UserGamesTemplateComponent} from './user-games-template/user-games-template.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     NgbCarouselModule,
-    FormsModule,
-    LandingModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    UserGamesTemplateComponent
   ],
   declarations: [
     HeaderComponent,
-    HomeComponent,
-    FooterComponent
+    FooterComponent,
+    UserGamesTemplateComponent
   ]
 })
 export class SharedModule {
+
 }

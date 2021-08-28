@@ -1,18 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../../../core/services/game.service';
 import {Game} from '../../../core/models/game';
 import {AuthService} from '../../../core/services/auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-furniture-details',
   templateUrl: './game-details.component.html',
   styleUrls: ['./game-details.component.css']
 })
-export class GameDetailsComponent implements OnInit {
+export class GameDetailsComponent implements OnInit, OnDestroy {
   game: Game;
   id;
   previousGames: Game[] = [];
+
+  getGameSubs: Subscription;
 
   constructor(private route: ActivatedRoute, private gameService: GameService,
               private authService: AuthService, private router: Router) {
@@ -22,7 +25,7 @@ export class GameDetailsComponent implements OnInit {
     this.route.params.subscribe(data => {
       this.id = data['id'];
       // tslint:disable-next-line:no-shadowed-variable
-      this.gameService.getGame(this.id).subscribe((data: Game) => {
+      this.getGameSubs = this.gameService.getGame(this.id).subscribe((data: Game) => {
         this.game = data;
         this.previousGames = JSON.parse(localStorage['lookedGames']);
 
@@ -30,6 +33,10 @@ export class GameDetailsComponent implements OnInit {
 
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    this.getGameSubs.unsubscribe();
   }
 
   isAuthAdmin(): boolean {
@@ -42,7 +49,7 @@ export class GameDetailsComponent implements OnInit {
 
   deleteGame() {
     this.gameService.deleteGame(this.id).subscribe((data) => {
-      this.router.navigate([`/home`]);
+      this.router.navigate([`/game/all`]);
     });
   }
 

@@ -126,7 +126,7 @@ router.get('/user', authCheck, (req, res) => {
 
 router.delete('/delete/:id', authCheck, (req, res) => {
     const id = req.params.id
-    const user = req.user._id
+    const user = req.user.email
 
     Game.findById(id)
         .then((game) => {
@@ -137,7 +137,7 @@ router.delete('/delete/:id', authCheck, (req, res) => {
                 })
             }
 
-            if ((game.creator.toString() !== user && !req.user.roles.includes("Admin"))) {
+            if ((game.manufacturer.toString() !== user && !req.user.roles.includes("Admin"))) {
                 return res.status(401).json({
                     success: false,
                     message: 'Unauthorized!'

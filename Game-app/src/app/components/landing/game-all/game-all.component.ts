@@ -1,31 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Game} from '../../../core/models/game';
 import {GameService} from '../../../core/services/game.service';
-/*import {Observable} from 'rxjs';*/
 import {NgForm} from '@angular/forms';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-furniture-all',
   templateUrl: './game-all.component.html',
   styleUrls: ['./game-all.component.css']
 })
-export class GameAllComponent implements OnInit {
-  /*  game$: Observable<Array<Game>>;*/
+export class GameAllComponent implements OnInit, OnDestroy {
   games: Game[] = [];
   name: string;
   length: number;
+
+  getAllGamesSubs: Subscription;
 
   constructor(private gameService: GameService) {
   }
 
   ngOnInit() {
-    this.gameService.getAllGames().subscribe((data) => {
+    this.getAllGamesSubs = this.gameService.getAllGames().subscribe((data) => {
       this.games = data;
       this.length = this.games.length;
     });
-    /*  setTimeout(() => {*/
-    /* this.game$ = this.gameService.getAllGames();*/
-    /* }, 20);*/
+  }
+
+  ngOnDestroy(): void {
+    this.getAllGamesSubs.unsubscribe();
   }
 
   searchGame() {

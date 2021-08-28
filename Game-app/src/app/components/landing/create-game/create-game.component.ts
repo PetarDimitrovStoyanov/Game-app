@@ -1,24 +1,26 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {GameService} from '../../../core/services/game.service';
 import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-create-furniture',
   templateUrl: './create-game.component.html',
   styleUrls: ['./create-game.component.css']
 })
-export class CreateGameComponent implements OnInit {
+export class CreateGameComponent implements OnInit, OnDestroy {
   form: FormGroup;
   image = '';
   email: string;
+
+  createGameSubs: Subscription;
 
   constructor(private fb: FormBuilder, private gameService: GameService, private router: Router) {
   }
 
   ngOnInit() {
     this.form = this.fb.group({
-      // Като имената в back-end-a
       name: ['', [Validators.required, Validators.minLength(4)]],
       category: ['', [Validators.required]],
       year: ['', [Validators.required, Validators.min(1950), Validators.max(2050)]],
@@ -32,7 +34,7 @@ export class CreateGameComponent implements OnInit {
   }
 
   createGame() {
-    this.gameService.createGame(this.form.value).subscribe((data) => {
+    this.createGameSubs = this.gameService.createGame(this.form.value).subscribe((data) => {
       this.router.navigate(['/game/all']);
     });
   }
@@ -43,5 +45,11 @@ export class CreateGameComponent implements OnInit {
 
   get invalid() {
     return this.form.invalid;
+  }
+
+  ngOnDestroy(): void {
+    if (this.createGameSubs !== undefined) {
+      this.createGameSubs.unsubscribe();
+    }
   }
 }

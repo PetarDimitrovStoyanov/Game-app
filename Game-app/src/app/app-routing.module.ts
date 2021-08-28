@@ -7,7 +7,6 @@ import {StartComponent} from './components/landing/start/start.component';
 import {PageNotFoundComponent} from './components/landing/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  /*{path: '', redirectTo: 'home', pathMatch: 'full'},*/
   {path: '', component: StartComponent},
   {path: 'home', component: HomeComponent},
   // @ts-ignore
@@ -18,8 +17,7 @@ const routes: Routes = [
   {path: 'game', loadChildren: () => import('./components/landing/landing.module')
       .then(m => m.LandingModule), canActivate: [AuthGuard]
   },
-  {path: '**', component: PageNotFoundComponent},
-  /*{path: '**', redirectTo: '', pathMatch: 'full'},*/
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

@@ -47,13 +47,6 @@
   cursor: pointer;
 }
 
-.splitter{
-  position: absolute;
-  width: 180px;
-  border-bottom: 2px solid #7D7B7B;
-  top: 212px;
-  right: 105px;
-}
 /*Description banner*/
 
 .description-banner, .banner-wrapper>h3 {

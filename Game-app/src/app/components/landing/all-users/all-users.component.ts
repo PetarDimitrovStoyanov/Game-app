@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../../../core/models/user';
 import {UserService} from '../../../core/services/user.service';
 import {Router} from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgForm} from '@angular/forms';
-
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-all-users',
   templateUrl: './all-users.component.html',
   styleUrls: ['./all-users.component.css']
 })
-export class AllUsersComponent implements OnInit {
+export class AllUsersComponent implements OnInit, OnDestroy {
 
   users: User[] = [];
   email: string;
@@ -22,14 +22,19 @@ export class AllUsersComponent implements OnInit {
   closeResult = '';
   currentUser: User;
 
+  getAllSubs: Subscription;
+
   constructor(private userService: UserService, private router: Router, private modalService: NgbModal) {
   }
 
   ngOnInit() {
-    this.userService.getAll().subscribe((data) => {
+    this.getAllSubs = this.userService.getAll().subscribe((data) => {
       this.users = data;
     });
+  }
 
+  ngOnDestroy(): void {
+    this.getAllSubs.unsubscribe();
   }
 
   deleteUser(id) {
