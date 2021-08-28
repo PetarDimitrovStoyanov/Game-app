@@ -27,3 +27,10 @@ The admin, can make everything that the user can do, and also edit not only his 
   - All users page - it is visible only for users with admin roles. This page shows all registered users and their names, emails, id's and roles in table form, which has pagination. 
 Some of the columns have an option to be order reversed in order to be easy for working. Of course, that is not all, on this page is also a search section, 
 that allows searching by email in order to be easier for the admin to find the person he wants.
+
+
+#Project structure:
+Authentication module - contains Login and Register components, both use HTML form template.
+Landing module - contains home component displayed when a user unauthorized and vice-versa, the limitation is grant by angular-guard.
+Shared module - contains Header with public area info and simple text footer.
+Services folder - auth service and handling calls to database using Observables.
