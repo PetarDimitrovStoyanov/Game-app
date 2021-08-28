@@ -6,10 +6,10 @@ import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-create-furniture',
-  templateUrl: './create-game.component.html',
-  styleUrls: ['./create-game.component.css']
+  templateUrl: './game-create.component.html',
+  styleUrls: ['./game-create.component.css']
 })
-export class CreateGameComponent implements OnInit, OnDestroy {
+export class GameCreateComponent implements OnInit, OnDestroy {
   form: FormGroup;
   image = '';
   email: string;

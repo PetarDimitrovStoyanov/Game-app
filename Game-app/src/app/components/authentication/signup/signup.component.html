@@ -20,8 +20,9 @@
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" required ngModel #password="ngModel"
+        <input type="{{type}}" class="form-control" id="password" required ngModel #password="ngModel"
                name="password" minlength="4">
+        <i (click)="seePass()" class="fas fa-eye"></i>
         <div *ngIf="password.invalid && password.touched" class="alert alert-dark">
           Password must have at least 4 characters!
         </div>

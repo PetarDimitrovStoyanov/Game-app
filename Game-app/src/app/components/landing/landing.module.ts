@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CreateGameComponent} from './create-game/create-game.component';
+import {GameCreateComponent} from './game-create/game-create.component';
 import {GameAllComponent} from './game-all/game-all.component';
 import {GameDetailsComponent} from './game-details/game-details.component';
 import {RouterModule} from '@angular/router';
@@ -31,7 +31,7 @@ import {HomeComponent} from './home/home.component';
     Ng2SearchPipeModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: 'create', component: CreateGameComponent},
+      {path: 'create', component: GameCreateComponent},
       {path: 'all', component: GameAllComponent},
       {path: 'details/:id', component: GameDetailsComponent},
       {path: 'user', component: GameUserComponent},
@@ -47,7 +47,7 @@ import {HomeComponent} from './home/home.component';
     CarouselNavigationComponent
   ],
   declarations: [
-    CreateGameComponent,
+    GameCreateComponent,
     GameAllComponent,
     GameDetailsComponent,
     GameUserComponent,

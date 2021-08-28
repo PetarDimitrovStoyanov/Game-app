@@ -21,3 +21,8 @@
   margin-bottom: 50px;
   margin-top: 30px;
 }
+
+.fa-eye{
+  font-size: 18px;
+  cursor: pointer;
+}

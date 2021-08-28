@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 })
 export class SignupComponent {
   @ViewChild('registerForm') registerForm: NgForm;
+  isVisible = false;
+  type = 'password';
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -20,6 +22,15 @@ export class SignupComponent {
       .subscribe((data) => {
         this.router.navigate(['/auth/signin']);
       });
+  }
+
+  seePass() {
+    this.isVisible = !this.isVisible;
+    if (this.isVisible) {
+      this.type = 'password';
+    } else {
+      this.type = 'text';
+    }
   }
 
 }
