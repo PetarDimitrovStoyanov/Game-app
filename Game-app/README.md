@@ -9,10 +9,12 @@ The admin, can make everything that the user can do, and also edit not only his 
 <h3>Short Info and Functionalities:</h3>
 <ul>
 <li> public part (accessible without authentication) - the non-authenticated users can see:
-  - Start page - it contains brief information about the web application and buttons for login and register.
-  - Login page - contains a login form.
-  - Register page - contains a registration form.
-  - Error page - "page not found 404" pops up when someone tries to reach a non-existing page.
+  <ol>
+  <li> Start page - it contains brief information about the web application and buttons for login and register. </li>
+  <li> Login page - contains a login form.</li>
+  <li> Register page - contains a registration form.</li>
+  <li> Error page - "page not found 404" pops up when someone tries to reach a non-existing page.</li>
+  </ol>
 </li>
 <li> private part (available for logined/registered users) - it contains the following pages:
   - Home page - has an animated greeting message along with a carousel section that shows the website's suggestions for wanted games.
