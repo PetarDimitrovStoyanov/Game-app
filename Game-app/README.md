@@ -72,3 +72,5 @@ that allows searching by email in order to be easier for the admin to find the p
   </li>
   </ul>
 
+
+For this project are used Angular and Type Script for front-end (Bootstrap, custom HMTL and CSS). For the back end are used Node.js Server and MongoDB.
