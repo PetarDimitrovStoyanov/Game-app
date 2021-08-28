@@ -47,7 +47,7 @@ that allows searching by email in order to be easier for the admin to find the p
 <li>Landing module - Includes the following components: 
   <ul>
       <li> AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.</li>
-      <li> CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.</li>
+      <li> CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user using async pipe (cold observable).</li>
       <li> GameCreateComponent- it use a reactive form to creat a game ad.</li>
       <li> GameEditComponent - it use a reactive form to edit a game ad.</li>
       <li> GameDetailsComponent - it shows the current info of the game ad plus it has a special section that contains the previously watched game ads.</li>
