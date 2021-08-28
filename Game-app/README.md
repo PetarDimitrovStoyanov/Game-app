@@ -45,17 +45,19 @@ that allows searching by email in order to be easier for the admin to find the p
   <ol type="1">
 <li>Authentication module - contains Login and Register components, both use template-driven form.</li>
 <li>Landing module - Includes the following components: 
-      1. AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.
-      2. CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.
-      3. GameCreateComponent- it use a reactive form to creat a game ad.
-      4. GameEditComponent - it use a reactive form to edit a game ad.
-      5. GameDetailsComponent - it shows the current info of the game ad plus it has a special section that contains the previously watched game ads.
-      6. GameAllComponent - it shows all current game ads. The games can be filtered, sorted and searched by input field.
-      7. GameByUserComponent - it shows all current games that the specific user has created using child data transfer (from shared template).
-      8. GameUserComponent - it contains the created games of the current logged user using child data transfer (from shared template).
-      9. HomeComponent - it contains the carousel component and some animated greetings message.
-      10. StartComponent - a simple static web page that has some short description for the website and holds redirect buttons to login and register.
-      11. Page not found - an error page, in case the user tries to reach an unexisting page.
+  <ol type="|">
+      <li> AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.</li>
+      <li> CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.</li>
+      <li> GameCreateComponent- it use a reactive form to creat a game ad.</li>
+      <li> GameEditComponent - it use a reactive form to edit a game ad.</li>
+      <li> GameDetailsComponent - it shows the current info of the game ad plus it has a special section that contains the previously watched game ads.</li>
+      <li> GameAllComponent - it shows all current game ads. The games can be filtered, sorted and searched by input field.</li>
+      <li> GameByUserComponent - it shows all current games that the specific user has created using child data transfer (from shared template).</li>
+      <li> GameUserComponent - it contains the created games of the current logged user using child data transfer (from shared template).</li>
+      <li> HomeComponent - it contains the carousel component and some animated greetings message.</li>
+      <li> StartComponent - a simple static web page that has some short description for the website and holds redirect buttons to login and register.</li>
+      <li> Page not found - an error page, in case the user tries to reach an unexisting page.</li>
+  </ol>
   </li>
 <li>Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.</li>
     </ol>
