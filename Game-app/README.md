@@ -28,10 +28,12 @@ The admin, can make everything that the user can do, and also edit not only his 
                    year of the game release, image, and creator's email address for contact.</li>
      </ol>
 </li>
-<li> administrator part (available for admins only)
-  - All users page - it is visible only for users with admin roles. This page shows all registered users and their names, emails, id's and roles in table form, which has pagination. 
+<li> administrator part (available for admins only):
+  <ol type="1">
+   <li> All users page - it is visible only for users with admin roles. This page shows all registered users and their names, emails, id's and roles in table form, which has pagination. 
 Some of the columns have an option to be order reversed in order to be easy for working. Of course, that is not all, on this page is also a search section, 
-that allows searching by email in order to be easier for the admin to find the person he wants.
+that allows searching by email in order to be easier for the admin to find the person he wants. </li>
+    </ol>
   </li>
   </ul>
 ________________________________________________________________________________________________________________________________________________________________________________
