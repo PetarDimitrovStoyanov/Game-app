@@ -58,10 +58,12 @@ Landing module - Includes the following components:
 Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.
  </li>
 <li>Core folder:
-Services subfolder - auth service, game service and user service that handling calls to database using Observables.
-Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specifc pages
-Interceptors subfolder - jwt-interceptor that add headers to the specific http request and response-handler interceptor which handle the specific response and shows the notification animated message using ngx-toastr.
-Models subfolder - contains the model interfaces for a Game ad and a User
+  <ol type="1">
+<li>Services subfolder - auth service, game service and user service that handling calls to database using Observables.</li>
+<li>Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specifc pages.</li>
+<li>Interceptors subfolder - jwt-interceptor that add headers to the specific http request and response-handler interceptor which handle the specific response and shows the notification animated message using ngx-toastr.</li>
+<li>Models subfolder - contains the model interfaces for a Game ad and a User</li>
+  </ol>
   </li>
   </ul>
 
