@@ -73,4 +73,4 @@ that allows searching by email in order to be easier for the admin to find the p
   </ul>
 
 
-For this project are used Angular and Type Script for front-end (Bootstrap, custom HMTL and CSS). For the back end are used Node.js Server and MongoDB.
+For this project are used Angular and Type Script for front-end (Bootstrap, custom HMTL and CSS implemented). For the back end are used Node.js Server and MongoDB. The routing in this app is made with Аngular routing (Lazy loading).
