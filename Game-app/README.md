@@ -17,14 +17,16 @@ The admin, can make everything that the user can do, and also edit not only his 
   </ol>
 </li>
 <li> private part (available for logined/registered users) - it contains the following pages:
-  - Home page - has an animated greeting message along with a carousel section that shows the website's suggestions for wanted games.
-  - All games page - it contains a search field that allows searching of a game by its name. Also, has a section for sorting by price (ascending and descending) along with a second section for filtering by category. 
-                     And all that working mutual to obtain the common result (by search, sort, and filter).
-  - Create game page - holds an empty form to fill out. 
-  - Edit game page - holds filled form, that contains the data of the selected game ad. The information can be amended by the user if he is a creator or has an admin role.
-  - My games page - a completely animated page that contains an interactive section that shows an image of the hovered game and a section for all games created by the currently logged user.
-  - Details page - by click on the details button of some specific game ad, the logged user will be redirected to a page that contains a section with game ad information as game name, category, price, description,
-                   year of the game release, image, and creator's email address for contact.
+   <ol type="1">
+  <li> Home page - has an animated greeting message along with a carousel section that shows the website's suggestions for wanted games.</li>
+  <li> All games page - it contains a search field that allows searching of a game by its name. Also, has a section for sorting by price (ascending and descending) along with a second section for filtering by category. 
+                     And all that working mutual to obtain the common result (by search, sort, and filter).</li>
+  <li> Create game page - holds an empty form to fill out. </li>
+  <li> Edit game page - holds filled form, that contains the data of the selected game ad. The information can be amended by the user if he is a creator or has an admin role.</li>
+  <li> My games page - a completely animated page that contains an interactive section that shows an image of the hovered game and a section for all games created by the currently logged user.</li>
+  <li> Details page - by click on the details button of some specific game ad, the logged user will be redirected to a page that contains a section with game ad information as game name, category, price, description,
+                   year of the game release, image, and creator's email address for contact.</li>
+     </ol>
 </li>
 <li> administrator part (available for admins only)
   - All users page - it is visible only for users with admin roles. This page shows all registered users and their names, emails, id's and roles in table form, which has pagination. 
