@@ -1,12 +1,12 @@
-Angular-Project: "Game-store"
+<h1>Angular-Project: "Game-store"</h1>
 
-<h1>Project idea:</h1>
+<h2>Project idea:</h2>
 This is a small website for computer game ads. Anyone can make their own registration and start buying or selling a computer games using ads.
 There are two types of roles - users and admins. The users can register, log in, create game ads, edit and delete their own ads, and use the search and filter options to find the wanted game. 
 Once the game ad is found they can click on the button "make an offer" to write an email to the current ad owner and make an offer.
 The admin, can make everything that the user can do, and also edit not only his own ads but of all other users too. He can see all the registered users and change some of their data (like the role, name, and email).
 
-#Short Info and Functionalities:
+<h3>Short Info and Functionalities:</h3>
 * public part (accessible without authentication) - the non-authenticated users can see:
   - Start page - it contains brief information about the web application and buttons for login and register.
   - Login page - contains a login form.
