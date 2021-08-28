@@ -6,7 +6,7 @@ There are two types of roles - users and admins. The users can register, log in,
 Once the game ad is found they can click on the button "make an offer" to write an email to the current ad owner and make an offer.
 The admin, can make everything that the user can do, and also edit not only his own ads but of all other users too. He can see all the registered users and change some of their data (like the role, name, and email).
 
-#Application Structure:
+#Short Info and Functionalities:
 * public part (accessible without authentication) - the non-authenticated users can see:
   - Start page - it contains brief information about the web application and buttons for login and register.
   - Login page - contains a login form.
