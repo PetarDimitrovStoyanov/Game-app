@@ -45,7 +45,7 @@ that allows searching by email in order to be easier for the admin to find the p
   <ol type="1">
 <li>Authentication module - contains Login and Register components, both use template-driven form.</li>
 <li>Landing module - Includes the following components: 
-  <ol type="A">
+  <ol type="none">
       <li> AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.</li>
       <li> CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.</li>
       <li> GameCreateComponent- it use a reactive form to creat a game ad.</li>
