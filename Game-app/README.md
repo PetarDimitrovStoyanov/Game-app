@@ -36,9 +36,10 @@ that allows searching by email in order to be easier for the admin to find the p
     </ol>
   </li>
   </ul>
-________________________________________________________________________________________________________________________________________________________________________________
+  
+<hr>
 
-#Project structure
+<h3>Project structure</h3>
 *Components folder:
 Authentication module - contains Login and Register components, both use template-driven form.
 Landing module - Includes the following components: 
