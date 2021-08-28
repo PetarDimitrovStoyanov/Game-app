@@ -39,8 +39,9 @@ that allows searching by email in order to be easier for the admin to find the p
   
 <hr>
 
-<h3>Project structure</h3>
-*Components folder:
+<h3>Project structure:</h3>
+<ul>
+<li>Components folder:
 Authentication module - contains Login and Register components, both use template-driven form.
 Landing module - Includes the following components: 
       1. AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.
@@ -55,10 +56,12 @@ Landing module - Includes the following components:
       10. StartComponent - a simple static web page that has some short description for the website and holds redirect buttons to login and register.
       11. Page not found - an error page, in case the user tries to reach an unexisting page.
 Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.
-
-*Core folder:
+ </li>
+<li>Core folder:
 Services subfolder - auth service, game service and user service that handling calls to database using Observables.
 Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specifc pages
 Interceptors subfolder - jwt-interceptor that add headers to the specific http request and response-handler interceptor which handle the specific response and shows the notification animated message using ngx-toastr.
 Models subfolder - contains the model interfaces for a Game ad and a User
+  </li>
+  </ul>
 
