@@ -27,10 +27,28 @@ The admin, can make everything that the user can do, and also edit not only his 
   - All users page - it is visible only for users with admin roles. This page shows all registered users and their names, emails, id's and roles in table form, which has pagination. 
 Some of the columns have an option to be order reversed in order to be easy for working. Of course, that is not all, on this page is also a search section, 
 that allows searching by email in order to be easier for the admin to find the person he wants.
+________________________________________________________________________________________________________________________________________________________________________________
 
+#Project structure
+*Components folder:
+Authentication module - contains Login and Register components, both use template-driven form.
+Landing module - Includes the following components: 
+      1. AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.
+      2. CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.
+      3. GameCreateComponent- it use a reactive form to creat a game ad.
+      4. GameEditComponent - it use a reactive form to edit a game ad.
+      5. GameDetailsComponent - it shows the current info of the game ad plus it has a special section that contains the previously watched game ads.
+      6. GameAllComponent - it shows all current game ads. The games can be filtered, sorted and searched by input field.
+      7. GameByUserComponent - it shows all current games that the specific user has created using child data transfer (from shared template).
+      8. GameUserComponent - it contains the created games of the current logged user using child data transfer (from shared template).
+      9. HomeComponent - it contains the carousel component and some animated greetings message.
+      10. StartComponent - a simple static web page that has some short description for the website and holds redirect buttons to login and register.
+      11. Page not found - an error page, in case the user tries to reach an unexisting page.
+Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.
 
-#Project structure:
-Authentication module - contains Login and Register components, both use HTML form template.
-Landing module - contains home component displayed when a user unauthorized and vice-versa, the limitation is grant by angular-guard.
-Shared module - contains Header with public area info and simple text footer.
-Services folder - auth service and handling calls to database using Observables.
+*Core folder:
+Services subfolder - auth service, game service and user service that handling calls to database using Observables.
+Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specifc pages
+Interceptors subfolder - jwt-interceptor that add headers to the specific http request and response-handler interceptor which handle the specific response and shows the notification animated message using ngx-toastr.
+Models subfolder - contains the model interfaces for a Game ad and a User
+
