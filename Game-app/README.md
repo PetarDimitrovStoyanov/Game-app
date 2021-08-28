@@ -42,8 +42,9 @@ that allows searching by email in order to be easier for the admin to find the p
 <h3>Project structure:</h3>
 <ul>
 <li>Components folder:
-Authentication module - contains Login and Register components, both use template-driven form.
-Landing module - Includes the following components: 
+  <ol>
+<li>Authentication module - contains Login and Register components, both use template-driven form.</li>
+<li>Landing module - Includes the following components: 
       1. AllUsersComponent - it shows all the registered users on the admin via pagination table that has a search field.
       2. CarouselNavigationComponent - it is part of a home page. It is a standard carousel component that shows dinamicly few game ads as suggestions to the user.
       3. GameCreateComponent- it use a reactive form to creat a game ad.
@@ -55,7 +56,9 @@ Landing module - Includes the following components:
       9. HomeComponent - it contains the carousel component and some animated greetings message.
       10. StartComponent - a simple static web page that has some short description for the website and holds redirect buttons to login and register.
       11. Page not found - an error page, in case the user tries to reach an unexisting page.
-Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.
+  </li>
+<li>Shared module - contains Header area, simple text Footer, and the template for the created game ads of a specific user using Angular animations.</li>
+    </ol>
  </li>
 <li>Core folder:
   <ol type="1">
