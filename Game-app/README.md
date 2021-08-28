@@ -65,7 +65,7 @@ that allows searching by email in order to be easier for the admin to find the p
 <li>Core folder:
   <ol type="1">
 <li>Services subfolder - auth service, game service and user service that handling calls to database using Observables.</li>
-<li>Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specifc pages.</li>
+<li>Guards subfolder - authGuard and admin-authGuard that limit the access of the non-authorized users to specific pages.</li>
 <li>Interceptors subfolder - jwt-interceptor that add headers to the specific http request and response-handler interceptor which handle the specific response and shows the notification animated message using ngx-toastr.</li>
 <li>Models subfolder - contains the model interfaces for a Game ad and a User</li>
   </ol>
