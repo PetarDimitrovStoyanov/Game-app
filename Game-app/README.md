@@ -75,7 +75,7 @@ that allows searching by email in order to be easier for the admin to find the p
 
 For this project are used Angular and Type Script for front-end (with Bootstrap, custom HMTL and CSS). For the back end are used Node.js Server and MongoDB. The routing in this app is made with Аngular routing (Lazy loading).
 
-To start the application open the angular project and the server anr run npm install.
+To start the application open the angular project and the server and run npm install.
 To enter as an admin please use:
 email: admin@admin.com
 password: Admin
