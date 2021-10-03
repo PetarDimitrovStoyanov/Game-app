@@ -80,8 +80,8 @@ router.get('/all', authCheck, (req, res) => {
     const search = req.query.search
 
     Game.find({})
-        .then((furniture) => {
-            return res.status(200).json(furniture)
+        .then((game) => {
+            return res.status(200).json(game)
         })
 })
 
@@ -106,8 +106,8 @@ router.get('/details/:id', authCheck, (req, res) => {
                 image: game.image,
             }
 
-            if (game.material) {
-                response.manufacturer = game.material
+            if (game.manufacturer) {
+                response.manufacturer = game.manufacturer
             }
 
             res.status(200).json(response)
