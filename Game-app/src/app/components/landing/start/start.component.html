@@ -6,7 +6,7 @@
         <img src="assets/images/line.PNG" alt="line">
       </div>
     </div>
-    <div class="button-banner-start">
+    <div class="button-banner-start" *ngIf="!getIsLogged()">
       <button class="btn-start" routerLink="/auth/signin">Sign in</button>
       <button class="btn-start" routerLink="/auth/signup">Register</button>
     </div>

@@ -9,4 +9,8 @@ export class StartComponent {
 
   constructor() {
   }
+
+  getIsLogged() {
+    return localStorage.getItem('name') !== null;
+  }
 }
